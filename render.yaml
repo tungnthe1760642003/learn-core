@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: learn-core-api
+    env: docker
+    plan: free
+    region: singapore
+    dockerFilePath: Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: learn-core-db
+          property: connectionString
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: SENTRY_DSN
+        sync: false
+
+databases:
+  - name: learn-core-db
+    plan: free
+    region: singapore
