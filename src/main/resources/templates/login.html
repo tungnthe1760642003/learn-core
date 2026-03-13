@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login - LearnCore</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text: #f8fafc;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0f172a;
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .login-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        h2 { margin-bottom: 1.5rem; font-weight: 600; }
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: #1f2937;
+            padding: 0.8rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 1px solid #e5e7eb;
+        }
+        .google-btn:hover {
+            background: #f9fafb;
+            transform: scale(1.02);
+        }
+        .google-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+        }
+        .footer { margin-top: 1.5rem; font-size: 0.9rem; color: #94a3b8; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>Welcome Back</h2>
+        <p style="color: #94a3b8; margin-bottom: 2rem;">Sign in to continue to LearnCore</p>
+        
+        <a th:href="@{/oauth2/authorization/google}" class="google-btn">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+            Sign in with Google
+        </a>
+
+        <div class="footer">
+            By signing in, you agree to our Terms of Service.
+        </div>
+    </div>
+</body>
+</html>
